@@ -19,3 +19,5 @@ bot.log
 
 # Ollama / temp
 *.tmp
+
+clawdbot/
