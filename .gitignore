@@ -1,1 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
 
+# Virtual Environments
+venv/
+.venv/
+
+# Logs
+*.log
+bot.log
+
+# Mac system files
+.DS_Store
+
+# Environment variables / secrets
+.env
+
+# Ollama / temp
+*.tmp
