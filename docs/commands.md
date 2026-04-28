@@ -1,99 +1,78 @@
 # Alfred (AL) Command Reference
 
-## Standard Restart
+## Standard Restart (MOST IMPORTANT)
 
-Use this when AL needs a clean restart.
+Use this anytime something seems off.
 
-```bash
 cd ~/Desktop/alfred-local-ai/scripts
 ./stop.sh
 sleep 5
 ./start.sh
-```
 
 ---
 
 ## Start AL
 
-```bash
 cd ~/Desktop/alfred-local-ai/scripts
 ./start.sh
-```
 
 ---
 
 ## Stop AL
 
-```bash
 cd ~/Desktop/alfred-local-ai/scripts
 ./stop.sh
-```
 
 ---
 
-## Emergency Kill
+## Emergency Fix (Telegram Conflict)
 
-Use this if Telegram reports a bot conflict.
+If you see errors about multiple bot instances:
 
-```bash
 pkill -9 -f bot.py
 pkill -9 -f ollama
-```
 
-Then wait 5–10 seconds and restart:
+Then restart:
 
-```bash
-./start.sh
-```
-
----
-
-## Check for Bot Process
-
-```bash
-ps aux | grep bot.py
-```
-
-Healthy result: only one real `bot.py` process should be running.
-
----
-
-## Make Scripts Executable
-
-Only needed after first cloning the repo.
-
-```bash
 cd ~/Desktop/alfred-local-ai/scripts
-chmod +x start.sh stop.sh
-```
+./start.sh
 
 ---
 
-## Clone Repo to Tron
+## Check If Bot Is Running
 
-Only needed if the repo is not already on the machine.
+ps aux | grep bot.py
 
-```bash
+You should see ONLY ONE real bot.py process.
+
+---
+
+## First-Time Setup (ONLY if needed)
+
 cd ~/Desktop
 git clone https://github.com/Philh7445/alfred-local-ai.git
-```
+
+cd ~/Desktop/alfred-local-ai/scripts
+chmod +x start.sh stop.sh
 
 ---
 
-## Healthy Running State
+## What "Healthy" Looks Like
 
-AL is healthy when:
-
-- One Terminal is open running AL
-- Telegram responds normally
-- No Telegram conflict errors appear
-- Ollama is listening on `127.0.0.1:11434`
+- One terminal running AL
+- Telegram responds
+- No conflict errors
+- Ollama running in background
 
 ---
 
-## Notes
+## Performance Notes
 
-- First Telegram response may take about 20–25 seconds.
-- Follow-up responses should usually be faster.
-- Avoid running `bot.py` from multiple terminals.
-- If confused, return to the Standard Restart process.
+- First message after startup: ~10 seconds
+- Messages after that: fast (1–3 seconds)
+
+---
+
+## Golden Rule
+
+If anything breaks → run Standard Restart
